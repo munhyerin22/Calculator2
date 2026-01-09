@@ -6,7 +6,9 @@ public class App {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("=== 계산기 프로그램 ===");
+
         String exit = ""; // 변수를 루프 외부에서 선언해야한다.
+        int total;
         do {
             System.out.print("첫번째 숫자를 입혁하세요: ");
             int num1 = sc.nextInt();
@@ -16,8 +18,6 @@ public class App {
 
             System.out.print("두번째 숫자를 입혁하세요: ");
             int num2 = sc.nextInt();
-
-            int total;
 
             switch (a) {
                 case '+': total = num1 + num2; break;
