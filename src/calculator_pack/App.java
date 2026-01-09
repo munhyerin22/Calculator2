@@ -8,7 +8,7 @@ public class App {
         System.out.println("=== 계산기 프로그램 ===");
 
         String exit = ""; // 변수를 루프 외부에서 선언해야한다.
-        int total;
+        double total;
         do {
             System.out.print("첫번째 숫자를 입혁하세요: ");
             int num1 = sc.nextInt();
@@ -25,7 +25,7 @@ public class App {
                 case '*': total = num1 * num2; break;
                 case '/':
                     if (num2 != 0) {
-                        total = num1 / num2;
+                        total = (double) num1 / num2;
                     } else {
                         System.out.println("0으로 나눌 수 없습니다.");
                         continue;
