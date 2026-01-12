@@ -9,19 +9,19 @@ public class App {
         System.out.println("=== 계산기 프로그램 ===");
 
         String exit = ""; // 변수를 루프 외부에서 선언해야한다.
-        double total=0;
+        double total;
 
         do {
             System.out.print("첫번째 숫자를 입혁하세요: ");
             int num1 = sc.nextInt();
 
-            System.out.print("연산자를 입혁하세요(+,-,*,/): ");
-            char a = sc.next().charAt(0);
-
             System.out.print("두번째 숫자를 입혁하세요: ");
             int num2 = sc.nextInt();
 
-            if(num1>=0||num2>=0) {
+            System.out.print("연산자를 입혁하세요(+,-,*,/): ");
+            char a = sc.next().charAt(0);
+
+            if (num1 >= 0 && num2 >= 0) {
                 switch (a) {
                     case '+':
                         total = num1 + num2;
@@ -44,12 +44,15 @@ public class App {
                         System.out.println("지원하지 않는 연산자입니다.");
                         continue;
                 }
-            }
+
             System.out.println(num1 + " " + a + " " + num2 + " = " + total);
             sc.nextLine();
 
-            System.out.print("계속 계산하시겠습니까?(그만 계산할 시 exit를 입력해주세요.): ");
+            System.out.print("계속 계산하시겠습니까?(exit 입력 시 종료): ");
             exit = sc.nextLine();
+            } else {
+                System.out.println("양의 정수를 입력해주세요.");
+            }
 
         } while (!exit.equals("exit"));
 
