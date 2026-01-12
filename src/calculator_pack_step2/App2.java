@@ -4,12 +4,13 @@ import java.util.Scanner;
 public class App2 {
     public static void main(String[] args){
 
-        double total;
+
         Calculator cal = new Calculator();
         Scanner sc = new Scanner(System.in);
         System.out.println("=== 계산기 프로그램 ===");
 
         String exit; // 변수를 루프 외부에서 선언해야한다.
+        double total; // 연산 결과 저장하는 변수로 나누기 연산 결과가 실수일 수 있기 때문에 실수형으로 지정.
 
         do {
             System.out.print("첫번째 숫자를 입혁하세요: ");
@@ -24,11 +25,11 @@ public class App2 {
             total = new Calculator().Cal(num1, a, num2);
             cal.getSave_h(total);
 
-            sc.nextLine();
+            sc.nextLine(); // 다음 scanner실행 전에 enter 빼주기.
 
             System.out.print("저장된 연산 결과 중 첫번째 결과를 삭제 하시겠습니까?(yes 입력 시 삭제): ");
             String del = sc.nextLine();
-            if (del.equals("yes")){
+            if (del.equals("yes")){ // del에 yes가 입력되면 연산 결과 List에서 첫번째 연산 결과 삭제.
                 cal.getDel();
             }
 
@@ -36,7 +37,7 @@ public class App2 {
             exit = sc.nextLine();
 
 
-        } while (!exit.equals("exit"));
+        } while (!exit.equals("exit")); // exit에 입력되는 값이 "exit"가 아니면 계속 반복
 
         System.out.println("프로그램을 종료합니다.");
     }
