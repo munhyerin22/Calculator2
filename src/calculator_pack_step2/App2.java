@@ -23,14 +23,16 @@ public class App2 {
             char a = sc.next().charAt(0);
 
             total = new Calculator().Cal(num1, a, num2);
-            cal.getSave_h(total);
+            cal.setSave_h(total);
+            cal.getShow_h();
+            System.out.println();
 
             sc.nextLine(); // 다음 scanner실행 전에 enter 빼주기.
 
             System.out.print("저장된 연산 결과 중 첫번째 결과를 삭제 하시겠습니까?(yes 입력 시 삭제): ");
             String del = sc.nextLine();
             if (del.equals("yes")){ // del에 yes가 입력되면 연산 결과 List에서 첫번째 연산 결과 삭제.
-                cal.getDel();
+                cal.setTotals();
             }
 
             System.out.print("계속 계산하시겠습니까?(exit 입력 시 종료): ");

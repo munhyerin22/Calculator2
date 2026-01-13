@@ -1,5 +1,8 @@
 package calculator_pack_step2;
+
 import java.util.ArrayList;
+//import java.util.Scanner;
+
 
 public class Calculator {
     ArrayList<Double> totals = new ArrayList<>();
@@ -43,19 +46,31 @@ public class Calculator {
     // 계산기의 계산이력 저장하고 보여주기
     private void save_h(double total) {
         totals.add(total); // totals라는 ArrayList에 total값을 추가
-        System.out.println(totals); //totals라는 List 출력
     }
-    public void getSave_h(double total){
+
+    public void setSave_h(double total) {
         save_h(total); // private 접근 지정자에 간접적으로 접근.
     }
 
-    // 연산 결과 중 첫번째 값 삭제하기
-    private void del(){
-        totals.removeFirst(); // totals라는 List에 첫번째 인덱스 삭제.
-        System.out.println(totals); // 삭제완료된 List 출력
+    private void show_h(){
+        System.out.println(totals);
     }
 
-    public void getDel(){
+    public void getShow_h(){
+        show_h();
+    }
+
+    // 연산 결과 중 첫번째 값 삭제하기
+    private void del() {
+        if(!totals.isEmpty()){
+            totals.removeFirst(); // totals라는 List에 첫번째 인덱스 삭제.
+            System.out.println(totals); // 삭제완료된 List 출력
+        } else {
+            System.out.println("저장된 값이 없습니다.");
+        }
+    }
+
+    public void setTotals() {
         del(); // private 접근 지정자에 간접적으로 접근.
     }
 }
