@@ -1,12 +1,22 @@
 package calculator_pack_step2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 //import java.util.Scanner;
-
 
 public class Calculator {
     ArrayList<Double> totals = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
 
+    //입력 받는 기능
+    public int sc1() {
+        System.out.print("입력하세요: ");
+        int number;
+        number = Integer.parseInt(sc.nextLine());
+        return number;
+    }
+
+    //계산 하는 기능
     public Double Cal(int num1, char a, int num2) { // 계산기의 계산하는 기능
         double total = 0;
 
@@ -26,17 +36,14 @@ public class Calculator {
                         total = (double) num1 / num2; // 나누기의 결과 값은 실수로 나올 수 있기 때문에 형변환.
                     } else {
                         System.out.println("0으로 나눌 수 없습니다.");
-                        break;
                     }
                     break;
                 default:
                     System.out.println("지원하지 않는 연산자입니다.");
                     break;
-
             }
 
             System.out.println(num1 + " " + a + " " + num2 + " = " + total);
-
         } else {
             System.out.println("양의 정수를 입력해주세요.");
         }
@@ -52,17 +59,13 @@ public class Calculator {
         save_h(total); // private 접근 지정자에 간접적으로 접근.
     }
 
-    private void show_h(){
-        System.out.println(totals);
-    }
-
-    public void getShow_h(){
-        show_h();
+    public ArrayList<Double> getShow_h() {
+        return totals;
     }
 
     // 연산 결과 중 첫번째 값 삭제하기
     private void del() {
-        if(!totals.isEmpty()){
+        if (!totals.isEmpty()) {
             totals.removeFirst(); // totals라는 List에 첫번째 인덱스 삭제.
             System.out.println(totals); // 삭제완료된 List 출력
         } else {
@@ -70,14 +73,7 @@ public class Calculator {
         }
     }
 
-    public void setTotals() {
+    public void setDel() {
         del(); // private 접근 지정자에 간접적으로 접근.
     }
 }
-
-
-
-
-
-
-
